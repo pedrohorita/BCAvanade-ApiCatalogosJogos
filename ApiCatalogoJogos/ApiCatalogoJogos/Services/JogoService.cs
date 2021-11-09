@@ -101,9 +101,14 @@ namespace ApiCatalogoJogos.Services
             };
         }
 
-        public Task Remover(Guid id)
+        public async Task Remover(Guid id)
         {
-            throw new NotImplementedException();
+            var jogo = await _jogoRepository.Obter(id);
+
+            if (jogo == null)
+                throw new JogoNaoCadastradoException();
+
+            await _jogoRepository.Remover(id);
         }
 
 

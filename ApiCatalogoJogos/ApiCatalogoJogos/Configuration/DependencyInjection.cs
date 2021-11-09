@@ -9,7 +9,7 @@ namespace ApiCatalogoJogos.Configuration
         public static void RegisterServices(this IServiceCollection services)
         {
             services.AddScoped<IJogoService, JogoService>();
-            services.AddScoped<IJogoRepository, JogoRepository>();
+            services.AddScoped<IJogoRepository, JogoSqlServerRepository>();
         }
     }
 }
